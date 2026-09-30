@@ -1,0 +1,144 @@
+{
+  "slug": "scieden-sales-workflow",
+  "company": "Supreme Components",
+  "role": "Product Manager",
+  "dates": "Aug–Dec 2023",
+  "readingTime": "4 min read",
+  "labels": [
+    "LLM productization",
+    "Workflow automation",
+    "Guardrails",
+    "B2B distribution"
+  ],
+  "title": "An RFQ is never just an RFQ.",
+  "shortTitle": "An RFQ is never just an RFQ.",
+  "description": "A B2B electronic components distributor was taking 18 hours to quote in-stock parts and 15 days for out-of-stock ones. I shipped a closed-loop quoting workflow on GPT-3.5 in 2023, then learned the model wasn't the hard part. The data model was.",
+  "problem": "A B2B electronic components distributor was taking 18 hours to quote in-stock parts and 15 days for out-of-stock ones. I shipped a closed-loop quoting workflow on GPT-3.5 in 2023, then learned the model wasn't the hard part. The data model was.",
+  "decision": "Automate the full RFQ loop, but route every quote through confidence tiers, price floors, and human override.",
+  "scope": "Product lead for the RFQ platform (intent classification, part number extraction, inventory matching, guardrails, and quote-to-order integration), plus the shipment tracking and demand forecasting re-architecture.",
+  "metrics": [
+    {
+      "value": "18h → <1h",
+      "label": "in-stock time to quote",
+      "definition": "before vs after"
+    },
+    {
+      "value": "15d → <3d",
+      "label": "out-of-stock turnaround",
+      "definition": "before vs after"
+    },
+    {
+      "value": "8K",
+      "label": "RFQs per month",
+      "definition": "processed by the workflow"
+    },
+    {
+      "value": "−22%",
+      "label": "logistics costs",
+      "definition": "shipment tracking + forecasting"
+    }
+  ],
+  "artifact": "rfq",
+  "artifactCaption": "The model reads the request. The system reads the relationship.",
+  "decisionCard": {
+    "options": "~~Assistive tool that drafts for reps~~ · Closed-loop automation with guardrails [CONFIRM: was a draft-only assistive approach actually considered? If not, replace with \"~~Keep quoting fully manual~~\"]",
+    "science": "18-hour and 15-day baselines, and the volume of routine requests",
+    "craft": "automation earns autonomy through confidence tiers, price floors, and overrides",
+    "cost": "more guardrail engineering before launch",
+    "result": "in-stock quotes in under an hour"
+  },
+  "systemDetails": [
+    [
+      "Model",
+      "GPT-3.5 (2023)"
+    ],
+    [
+      "Pipeline",
+      "Intent classification, part number extraction, inventory matching, quote/RFQ routing"
+    ],
+    [
+      "Guardrails",
+      "Output guardrails, confidence tiers, price floors, escalation paths, human overrides"
+    ],
+    [
+      "Integration",
+      "Quote-to-order"
+    ],
+    [
+      "Volume",
+      "8K RFQs per month"
+    ]
+  ],
+  "sections": [
+    {
+      "id": "context",
+      "label": "The Problem",
+      "title": "Speed was the product, and we were slow.",
+      "paragraphs": [
+        {
+          "kind": "science",
+          "text": "RFQs arrived as unstructured emails. Sales reps looked up part numbers by hand, checked stock, and priced from memory and spreadsheets. In-stock quotes took 18 hours. Out-of-stock quotes took 15 days. In component distribution, response time is a competitive lever, and we were giving it away."
+        }
+      ],
+      "figures": []
+    },
+    {
+      "id": "decision",
+      "label": "The Decision",
+      "title": "Automate the loop. Keep humans on the edges.",
+      "paragraphs": [
+        {
+          "kind": "craft",
+          "text": "In 2023, putting an LLM in front of commercial pricing was a trust problem before it was a technology problem. I designed the workflow so automation handled the routine and people handled the risky, with guardrails deciding which was which."
+        }
+      ],
+      "figures": [
+        "quote-pipeline",
+        "trust-matrix"
+      ]
+    },
+    {
+      "id": "evidence",
+      "label": "What Went Wrong",
+      "title": "Our biggest mistake: treating every RFQ as new.",
+      "paragraphs": [
+        {
+          "kind": "science",
+          "text": "Early on, the workflow treated each RFQ as a standalone request. Reality was messier. Follow-ups on existing quotes arrived as brand-new queries. Sister entities of the same customer submitted the same request separately. And the right price depended on context the request never contained: tiered pricing agreements, relationship history, revenue risk, lead time, acceptable alternates, and whether it was a new product introduction or a repeat order."
+        },
+        {
+          "kind": "craft",
+          "text": "The fix wasn't a better prompt. It was modeling the account, so every RFQ was read as a moment in a relationship."
+        }
+      ],
+      "figures": [
+        "account-context"
+      ],
+      "systemDetails": true
+    },
+    {
+      "id": "outcomes",
+      "label": "Outcomes",
+      "title": "Quotes in under an hour, without giving away the margin.",
+      "paragraphs": [
+        {
+          "text": "In-stock time to quote went from 18 hours to under 1 hour, and out-of-stock turnaround went from 15 days to under 3. The workflow now handles 8K RFQs a month. Separately, re-architecting shipment tracking and demand forecasting cut logistics costs by 22%."
+        }
+      ],
+      "figures": [
+        "quote-before-after"
+      ]
+    },
+    {
+      "id": "learning",
+      "label": "What I Learned",
+      "title": "The model was the easy part.",
+      "paragraphs": [
+        {
+          "text": "Automation that ignores the relationship will quote fast and quote wrong. The durable work was in the data model and the guardrails, not the prompt."
+        }
+      ],
+      "figures": []
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+flowchart LR
+  accTitle: Inventory intelligence over existing systems
+  accDescr: Existing ERPs and customer systems connect through configurable mappings to a canonical inventory model. Reconciliation and freshness checks support inventory and replenishment decisions while surfacing stale data and exceptions.
+  sources["Tally · Zoho · Vyapar<br/>Customer systems"] --> mapping["Configurable<br/>field mappings"]
+  mapping --> model["Canonical<br/>inventory model"]
+  model --> reconcile["Reconcile +<br/>check freshness"]
+  reconcile --> stock["Inventory +<br/>replenishment"]
+  reconcile --> issues["Stale data /<br/>exceptions"]
+  class model,reconcile focus
+  class issues human

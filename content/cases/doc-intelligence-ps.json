@@ -1,0 +1,217 @@
+{
+  "slug": "doc-intelligence-ps",
+  "company": "ProductSquads",
+  "role": "Lead Product Manager",
+  "dates": "Feb–Sep 2025",
+  "readingTime": "5 min read",
+  "labels": [
+    "Evaluation",
+    "Retrieval",
+    "Human-in-the-loop",
+    "Enterprise deployment"
+  ],
+  "title": "Document AI that handles the formats we haven't seen.",
+  "shortTitle": "Document AI that handles the formats we haven't seen.",
+  "description": "The roadmap called for six more format-specific parsers. The failure data said we would be solving the same problem six times. I bet the platform on schema-driven retrieval, and built the evaluation system that let us prove the bet.",
+  "problem": "The roadmap called for six more format-specific parsers. The failure data said we would be solving the same problem six times. I bet the platform on schema-driven retrieval, and built the evaluation system that let us prove the bet.",
+  "decision": "Replace 6+ planned per-format parsers with schema-driven retrieval, gated by evaluation and human review. New document variants became a configuration change.",
+  "scope": "Product lead for the extraction platform: architecture decisions, model routing, evaluation, reviewer workflows, and account onboarding. Delivered with two engineering pods and a 50-person human review team.",
+  "metrics": [
+    {
+      "value": "100K+",
+      "label": "documents per month",
+      "definition": "production volume"
+    },
+    {
+      "value": "95%+",
+      "label": "extraction accuracy",
+      "definition": "field-level exact match, before human review"
+    },
+    {
+      "value": "70%",
+      "label": "faster turnaround",
+      "definition": "reduction in turnaround time"
+    },
+    {
+      "value": "<1¢",
+      "label": "per page",
+      "definition": "processing cost"
+    }
+  ],
+  "artifact": "review",
+  "artifactCaption": "Every extracted value traces back to its source. Reviewers audit in context, and their corrections become signal.",
+  "decisionCard": {
+    "options": "~~Build 6+ more per-format parsers~~ · Schema-driven retrieval",
+    "science": "failure analysis showed errors clustered around field meaning, not document appearance",
+    "craft": "traded day-one accuracy on solved formats for accuracy that generalizes to every future format",
+    "cost": "lower initial accuracy, and a harder conversation with engineering",
+    "result": "new variants became a configuration change"
+  },
+  "systemDetails": [
+    [
+      "Parsing",
+      "Native text first. OCR only when native text coverage is below 100%"
+    ],
+    [
+      "Retrieval",
+      "Hybrid, not dense-only"
+    ],
+    [
+      "Low-confidence handling",
+      "Flagged regions re-extracted at 150 → 200 → 300 DPI"
+    ],
+    [
+      "Latency",
+      "p50 1.2s, p95 ~3s on the extraction step"
+    ],
+    [
+      "Review",
+      "Batches of 500. Bounding-box preview links every value to its source"
+    ],
+    [
+      "Feedback",
+      "Tenant-scoped correction pools"
+    ],
+    [
+      "Failure handling",
+      "Defined failure cases auto-resume. Undefined cases route to an engineer's queue"
+    ],
+    [
+      "Deployment",
+      "Single-tenant, inside a Fortune 500 client's own environment, on self-hosted Llama"
+    ],
+    [
+      "Cost",
+      "Under 1 cent per page"
+    ],
+    [
+      "Stack",
+      "Python · React · Qdrant · Llama · Redis · Postgres · AWS"
+    ]
+  ],
+  "sections": [
+    {
+      "id": "context",
+      "label": "The Problem",
+      "title": "Every new format was another engineering project.",
+      "paragraphs": [
+        {
+          "kind": "science",
+          "text": "Enterprise customers sent everything: native PDFs, scans, tables, handwriting, mixed layouts. Much of it was chemical and regulatory compliance documentation, where a wrong field is a compliance problem, not a typo."
+        },
+        {
+          "kind": "science",
+          "text": "The per-format parsers looked great on the dashboard. They hit very high accuracy on the formats engineers had tuned, but only because engineering had spent hundreds of hours hand-fixing each one. Six more were on the roadmap, and every new customer variant meant another round. The accuracy was real. It just didn't scale, because every point of it was paid for in engineering time."
+        }
+      ],
+      "figures": []
+    },
+    {
+      "id": "evidence",
+      "label": "What I Found",
+      "title": "The failures weren't about format. They were about meaning.",
+      "paragraphs": [
+        {
+          "kind": "science",
+          "text": "I analyzed the long tail of failed extractions [CONFIRM: number audited. The current page says \"200+\"; keep it only if Sahil confirms]. The pattern was consistent: documents failed less because of how they looked and more because the system didn't know what a field was. Six separate parsers would have solved six versions of the same underlying problem."
+        }
+      ],
+      "figures": [
+        "failure-taxonomy"
+      ],
+      "notices": [
+        "[SAHIL TO ADD: real categories and counts from the audit, if available]"
+      ]
+    },
+    {
+      "id": "decision",
+      "label": "The Decision",
+      "title": "Define the fields. Let retrieval handle the variations.",
+      "paragraphs": [
+        {
+          "kind": "craft",
+          "text": "I proposed a schema-driven retrieval layer: define what each field is and how to recognize it, then retrieve it across any layout. Onboarding a new variant becomes configuration instead of a multi-week build."
+        },
+        {
+          "kind": "craft",
+          "text": "The architecture wasn't the hard part. The hard part was asking the organization to accept that the general system would start behind the hand-tuned parsers on formats they had already solved."
+        }
+      ],
+      "figures": [
+        "concept-curve"
+      ]
+    },
+    {
+      "id": "cost",
+      "label": "What It Cost",
+      "title": "We traded accuracy we had for accuracy we could keep.",
+      "paragraphs": [
+        {
+          "kind": "craft",
+          "text": "On day one, the new system scored lower on formats we'd already solved. I didn't hide that. I made it measurable instead: if we were asking the team to trust a system that started behind, everyone needed to see the same quality bar."
+        },
+        {
+          "kind": "science",
+          "text": "I built an evaluation framework in four layers, and releases were gated on it."
+        }
+      ],
+      "figures": [
+        "eval-stack"
+      ]
+    },
+    {
+      "id": "shipped",
+      "label": "What Shipped",
+      "title": "A pipeline that knows when to ask a person.",
+      "paragraphs": [
+        {
+          "kind": "craft",
+          "text": "Confidence thresholds decided what passed automatically and what needed a person. Model routing by complexity balanced accuracy, latency, and cost. Reviewer corrections were pooled per tenant, so one account's fixes improved that account without degrading anyone else's."
+        }
+      ],
+      "figures": [
+        "document-pipeline"
+      ],
+      "systemDetails": true
+    },
+    {
+      "id": "hardest",
+      "label": "The Hardest Problem",
+      "title": "A table that didn't know it had ended.",
+      "paragraphs": [
+        {
+          "kind": "science",
+          "text": "Tables that spanned page breaks broke the assumption that a page is a unit of meaning. [SAHIL TO ADD: one or two sentences on how it was solved]"
+        }
+      ],
+      "figures": [
+        "table-stitch"
+      ]
+    },
+    {
+      "id": "outcomes",
+      "label": "Outcomes",
+      "title": "100K+ documents a month, 95%+ exact match before anyone reviewed them.",
+      "paragraphs": [
+        {
+          "text": "Straight-through processing ran at 70–90%+ depending on the account and document complexity. Turnaround time dropped 70%. New document variants became configuration changes instead of engineering projects, and the evaluation framework gave the team a shared way to make release decisions as customer inputs changed."
+        }
+      ],
+      "figures": [],
+      "footnotes": [
+        "On specific use cases where a customer refined its schema, field accuracy exceeded 99%."
+      ]
+    },
+    {
+      "id": "learning",
+      "label": "What I Learned",
+      "title": "Measure the trade-off, or you're just arguing about it.",
+      "paragraphs": [
+        {
+          "text": "The system that looks strongest on familiar inputs is often the most expensive one to adapt. The only honest way to choose between them is to measure both, which is why the evaluation framework mattered more than the architecture."
+        }
+      ],
+      "figures": []
+    }
+  ]
+}

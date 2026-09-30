@@ -1,0 +1,82 @@
+[
+  {
+    "page": "index",
+    "width": 360,
+    "overflow": false,
+    "h1": 1,
+    "brokenAnchors": [],
+    "errors": []
+  },
+  {
+    "page": "case-study",
+    "width": 360,
+    "overflow": false,
+    "h1": 1,
+    "brokenAnchors": [],
+    "errors": []
+  },
+  {
+    "page": "index",
+    "width": 390,
+    "overflow": false,
+    "h1": 1,
+    "brokenAnchors": [],
+    "errors": []
+  },
+  {
+    "page": "case-study",
+    "width": 390,
+    "overflow": false,
+    "h1": 1,
+    "brokenAnchors": [],
+    "errors": []
+  },
+  {
+    "page": "index",
+    "width": 768,
+    "overflow": false,
+    "h1": 1,
+    "brokenAnchors": [],
+    "errors": []
+  },
+  {
+    "page": "case-study",
+    "width": 768,
+    "overflow": false,
+    "h1": 1,
+    "brokenAnchors": [],
+    "errors": []
+  },
+  {
+    "page": "index",
+    "width": 1024,
+    "overflow": false,
+    "h1": 1,
+    "brokenAnchors": [],
+    "errors": []
+  },
+  {
+    "page": "case-study",
+    "width": 1024,
+    "overflow": false,
+    "h1": 1,
+    "brokenAnchors": [],
+    "errors": []
+  },
+  {
+    "page": "index",
+    "width": 1440,
+    "overflow": false,
+    "h1": 1,
+    "brokenAnchors": [],
+    "errors": []
+  },
+  {
+    "page": "case-study",
+    "width": 1440,
+    "overflow": false,
+    "h1": 1,
+    "brokenAnchors": [],
+    "errors": []
+  }
+]

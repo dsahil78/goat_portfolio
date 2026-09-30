@@ -1,0 +1,11 @@
+flowchart LR
+  accTitle: Document processing with a review boundary
+  accDescr: Multi-format documents are classified and routed by complexity, extracted using a schema, and validated against confidence policy. Outputs that meet policy proceed; uncertain outputs go through human review.
+  input["Multi-format<br/>documents"] --> route["Classify<br/>and route"]
+  route --> retrieval["Schema-driven<br/>extraction"]
+  retrieval --> policy{"Meets<br/>policy?"}
+  policy -->|Yes| output["Validated<br/>output"]
+  policy -->|Review| human["Human<br/>review"]
+  human --> output
+  class route,retrieval,policy focus
+  class human human

@@ -1,0 +1,8 @@
+flowchart TB
+  accTitle: Quoting with a policy boundary
+  accDescr: RFQ and account context feed policy checks, routing to a quote or human review.
+  context["RFQ + account context"] --> policy{"Policy checks"}
+  policy -->|Pass| quote["Quote"]
+  policy -->|Exception| review["Human<br/>review"]
+  class context,policy focus
+  class review human

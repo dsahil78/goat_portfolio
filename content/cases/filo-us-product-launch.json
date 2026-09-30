@@ -1,0 +1,150 @@
+{
+  "slug": "filo-us-product-launch",
+  "company": "Filo",
+  "role": "Founding US PM",
+  "dates": "Aug 2022–Aug 2023",
+  "readingTime": "5 min read",
+  "labels": [
+    "Marketplace",
+    "0→1 launch",
+    "Matching",
+    "Activation"
+  ],
+  "title": "The US didn't need India's product. I had three weeks to prove it.",
+  "shortTitle": "The US didn't need India's product. I had three weeks to prove it.",
+  "description": "Filo matched students with live tutors in seconds and already had 2M+ users. The plan for the US was a lift-and-shift. I pushed for US-specific matching, proved the case in three weeks, and the US marketplace reached 120K users and $1.5M ARR in six months.",
+  "problem": "Filo matched students with live tutors in seconds and already had 2M+ users. The plan for the US was a lift-and-shift. I pushed for US-specific matching, proved the case in three weeks, and the US marketplace reached 120K users and $1.5M ARR in six months.",
+  "decision": "Build US-specific matching for collaborative learning instead of porting the India model.",
+  "scope": "Founding US PM, owning the US launch while based in India: matching, the activation funnel, OCR intake, session continuity, low-bandwidth audio and video, student and tutor onboarding, quality thresholds, and fraud detection. Worked with engineering, data science, and a 200-person operations team.",
+  "metrics": [
+    {
+      "value": "120K",
+      "label": "US users",
+      "definition": "in six months"
+    },
+    {
+      "value": "$1.5M",
+      "label": "ARR",
+      "definition": "in six months"
+    },
+    {
+      "value": "98%",
+      "label": "of US requests",
+      "definition": "matched in under 45 seconds"
+    },
+    {
+      "value": "+35%",
+      "label": "activation",
+      "definition": "after funnel work"
+    }
+  ],
+  "artifact": "matching",
+  "artifactCaption": "The whole product lives inside 45 seconds.",
+  "decisionCard": {
+    "options": "~~Lift-and-shift the India matching model~~ · US-specific matching for collaborative learning",
+    "science": "100+ interviews showing different US learning behavior",
+    "craft": "challenged a working playbook, and earned the time to prove it",
+    "cost": "a three-week proof window with a lean team",
+    "result": "120K users and $1.5M ARR in six months"
+  },
+  "systemDetails": [
+    [
+      "Matching",
+      "US-specific logic, 60s target, 98% of US requests in under 45s"
+    ],
+    [
+      "Intake",
+      "OCR on uploaded problems"
+    ],
+    [
+      "Sessions",
+      "Session continuity, low-bandwidth audio and video"
+    ],
+    [
+      "Trust",
+      "Tutor onboarding, quality thresholds, fraud detection"
+    ],
+    [
+      "Research",
+      "100+ user interviews"
+    ]
+  ],
+  "sections": [
+    {
+      "id": "context",
+      "label": "The Problem",
+      "title": "The easy path was already decided.",
+      "paragraphs": [
+        {
+          "kind": "science",
+          "text": "The playbook had worked at 2M+ users, so the plan for the US was reasonable on paper: take the matching model that worked in India and ship it."
+        }
+      ],
+      "figures": []
+    },
+    {
+      "id": "evidence",
+      "label": "What I Found",
+      "title": "US students didn't want answers. They wanted to learn together.",
+      "paragraphs": [
+        {
+          "kind": "science",
+          "text": "Across 100+ user interviews, US students behaved fundamentally differently. They wanted a collaborative learning experience, not the model that worked in India."
+        }
+      ],
+      "figures": []
+    },
+    {
+      "id": "decision",
+      "label": "The Decision",
+      "title": "Fight for the harder path, and prove it fast.",
+      "paragraphs": [
+        {
+          "kind": "craft",
+          "text": "I pushed for US-specific matching logic. I was given three weeks to prove the US needed it. The cost was personal: a lean team, lost sleep, and keeping momentum under pressure while the default plan was ready to go."
+        }
+      ],
+      "figures": [
+        "launch-fork"
+      ]
+    },
+    {
+      "id": "shipped",
+      "label": "What Shipped",
+      "title": "A 60-second promise, kept in 45.",
+      "paragraphs": [
+        {
+          "kind": "craft",
+          "text": "Matching had a 60-second target. We designed the whole request path around it."
+        }
+      ],
+      "figures": [
+        "matching-flow",
+        "marketplace-trust"
+      ],
+      "systemDetails": true
+    },
+    {
+      "id": "outcomes",
+      "label": "Outcomes",
+      "title": "120K users and $1.5M ARR in six months.",
+      "paragraphs": [
+        {
+          "text": "Activation rose 35% and conversion reached 3%+. 98% of US requests were matched in under 45 seconds, against a 60-second target."
+        }
+      ],
+      "figures": []
+    },
+    {
+      "id": "learning",
+      "label": "What I Learned",
+      "title": "Local insight is a product decision, not a localization task.",
+      "paragraphs": [
+        {
+          "text": "Building US-specific matching wasn't the hardest part. The hardest part was earning the three weeks to prove it was needed."
+        }
+      ],
+      "figures": []
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+flowchart LR
+  accTitle: From customer signals to product recommendations
+  accDescr: NXTai organizes feedback, support, CRM, reviews, and backlog signals in a Product Memory Graph. ROI-weighted prioritization supports evidence-backed recommendations connected to Jira and Notion workflows. This is an illustrative prototype workflow.
+  signals["Feedback · support · CRM<br/>Reviews · backlog"] --> memory["Product<br/>Memory Graph"]
+  memory --> rank["ROI-weighted<br/>prioritization"]
+  rank --> recommend["Evidence-backed<br/>recommendations"]
+  recommend --> act["Jira + Notion<br/>workflows"]
+  class memory,rank focus

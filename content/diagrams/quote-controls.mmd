@@ -1,0 +1,12 @@
+flowchart LR
+  accTitle: Account-aware quoting with explicit controls
+  accDescr: Emails and attachments are classified and parsed for parts. Account, inventory, and open-quote context feed policy checks. Requests can proceed to quote routing or human review, and accepted quotes connect to orders.
+  input["RFQ intake"] --> extract["Extract<br/>parts"]
+  extract --> context["Account<br/>context"]
+  context --> policy{"Policy<br/>checks"}
+  policy -->|Pass| quote["Quote<br/>routing"]
+  policy -->|Exception| human["Human<br/>review"]
+  human --> quote
+  quote --> order["Accepted quote<br/>to order"]
+  class context,policy focus
+  class human human

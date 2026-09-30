@@ -1,0 +1,21 @@
+import Image from 'next/image';
+import { cases, caseHref } from '@/content/case-studies';
+import { Tag, ArrowLink, Metrics, KeyDecision, ExtractionDiagram } from './ui';
+
+export function SelectedWork() {
+  const [document,inventory,filo,supreme] = cases;
+  return <section id="work" aria-labelledby="work-title">
+    <div className="index-line"><h2 id="work-title">Selected work</h2><span>AI platforms / Enterprise / Marketplaces</span></div>
+    <article className="feature" aria-labelledby="document-title">
+      <div className="feature-top"><span>{document.company} · {document.role}</span><span>Document intelligence</span></div>
+      <div className="feature-body"><div><h3 id="document-title">{document.title}</h3><p><strong>Key decision:</strong> replace six planned parsers with schema-driven retrieval, backed by evaluation and human review.</p><ArrowLink href={caseHref(document)} label="Read the case study — ProductSquads">Read the case study</ArrowLink></div><ExtractionDiagram/></div>
+      <Metrics items={document.metrics} className="feature-metrics"/>
+    </article>
+    <article className="inventory-project" aria-labelledby="inventory-title">
+      <div className="project-heading"><div><Tag>{inventory.company} · {inventory.role}</Tag><h3 id="inventory-title">Inventory intelligence.<br/>Built around the systems<br className="desktop-break"/> customers already use.</h3></div><ArrowLink href={caseHref(inventory)} label="Read the case study — Closphere">Read the case study</ArrowLink></div>
+      <div className="inventory-body"><div><KeyDecision>Stop replacing ERPs. Read from them, reconcile their data, and make inventory trustworthy.</KeyDecision><Metrics items={[{value:'63',label:'paying companies'},{value:'<7 days',label:'onboarding, from 6+ weeks'}]} className="number-pair"/><p className="project-outcome">Founded, scaled, and exited through a technology sale.</p></div><figure><a href="/images/closphere-dashboard.png" aria-label="View the full Closphere interface image"><Image src="/images/closphere-dashboard.png" alt="Closphere InventoryIQ interface showing inventory coverage and a queue of operational exceptions" width={1471} height={809} sizes="(max-width: 700px) 90vw, 60vw"/></a><figcaption>InventoryIQ by Closphere · Interface reference.</figcaption></figure></div>
+    </article>
+    <article className="filo-project" aria-labelledby="filo-title"><figure><Image src="/images/filo-product.png" alt="Filo’s tutoring landing page with question intake and tutor connection options" width={2940} height={1506} sizes="(max-width: 700px) 85vw, 45vw"/><figcaption>Filo · Instant tutoring experience.</figcaption></figure><div className="filo-copy"><Tag>{filo.company} · {filo.role}</Tag><h3 id="filo-title">Launching a marketplace<br className="desktop-break"/> in a new market.</h3><KeyDecision>Adapt matching to US tutor supply, pricing, and session intent before scaling.</KeyDecision><Metrics items={filo.metrics.slice(0,2)} className="number-pair"/><ArrowLink href={caseHref(filo)} label="Read the case study — Filo">Read the case study</ArrowLink></div></article>
+    <article className="work-teaser"><div><Tag>{supreme.company} · AI sales automation</Tag><h3>In-stock quotes: 18 hours → under 1 hour.</h3><p>Guardrails, account context, and human review across 8K+ RFQs per month.</p></div><ArrowLink href={caseHref(supreme)} label="Read the Supreme Components case study"><span className="sr-only">Read the Supreme Components case study</span></ArrowLink></article>
+  </section>;
+}

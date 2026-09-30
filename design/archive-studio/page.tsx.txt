@@ -1,0 +1,19 @@
+import Image from 'next/image';
+import {profile} from '@/content/profile';
+import {projects} from '@/content/projects';
+import {SelectedWork} from '@/components/project-previews';
+import {Tag,ArrowLink} from '@/components/ui';
+import {Contact} from '@/components/site-shell';
+import {pageMetadata} from '@/lib/site';
+
+export const metadata = pageMetadata('Product Manager & Founder','Sahil Dua builds AI platforms, enterprise software, and marketplaces. Explore the product decisions behind document intelligence, Closphere, and Filo’s US launch.','/');
+
+export default function Home() {
+  return <main id="main" tabIndex={-1}>
+    <section className="hero" aria-labelledby="intro-title"><div><Tag>{profile.identity}</Tag><h1 id="intro-title">Sahil Dua.</h1><p>I build AI and enterprise products.<br/>Previously, I founded an inventory SaaS and helped take Filo into the US.</p><div className="hero-actions"><ArrowLink href="#work" direction="↓">Explore my work</ArrowLink><ArrowLink href={`mailto:${profile.email}`}>Get in touch</ArrowLink></div></div><figure><Image className="portrait" src="/images/sahil-portrait.jpg" width={206} height={206} sizes="206px" preload alt="Sahil Dua at the beach"/><figcaption>Engineer by training.<br/>Product manager by practice.</figcaption></figure></section>
+    <SelectedWork/>
+    <section className="builds-section" aria-labelledby="build-title"><div className="project-heading"><div><Tag>Prototypes &amp; experiments</Tag><h2 id="build-title">Still building.</h2></div><ArrowLink href="/projects">All projects</ArrowLink></div><div className="build-list">{projects.filter(p=>p.featured).map(p=><article key={p.id}><div><span className="small muted">{p.status}</span><h3>{p.name}</h3></div><p>{p.description}</p><ArrowLink href={`/projects#${p.id}`} label={`Explore prototype — ${p.name}`}>Explore prototype</ArrowLink></article>)}</div></section>
+    <section className="about-section" aria-labelledby="about-title"><figure><Image src="/images/kindred-team.webp" width={828} height={552} sizes="(max-width: 700px) 90vw, 40vw" alt="The Kindred team holding their certificate at UW’s Dempsey Startup Competition"/><figcaption>With the Kindred team at UW’s Dempsey Startup Competition.</figcaption></figure><div><Tag>A bit about me</Tag><h2 id="about-title">Engineering was<br/>my starting point.</h2><p>I started with data pipelines and operational systems. Then came product management, founding Closphere, and an MS in Information Management at the University of Washington, completed in August 2026.</p><p>I’m looking for my next role building AI platforms and enterprise software.</p><ArrowLink href="/about">More about me</ArrowLink></div></section>
+    <Contact/>
+  </main>;
+}

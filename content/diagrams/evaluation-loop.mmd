@@ -1,0 +1,10 @@
+flowchart LR
+  accTitle: Evaluation and release feedback loop
+  accDescr: Tenant-level golden datasets and human annotations support evaluation. Release criteria determine whether a candidate proceeds to release and monitoring or returns to model, prompt, and retrieval iteration. Production feedback informs subsequent evaluation.
+  data["Golden datasets<br/>and annotations"] --> eval["LLM-as-judge +<br/>field-level evaluation"]
+  eval --> gate{"Release<br/>criteria"}
+  gate -->|Pass| release["Release +<br/>monitoring"]
+  gate -->|Rework| tune["Model / prompt /<br/>retrieval iteration"]
+  tune --> eval
+  release -. Production feedback .-> data
+  class eval,gate focus

@@ -1,0 +1,9 @@
+flowchart LR
+  accTitle: Matching designed for the US market
+  accDescr: Student question intake feeds US-specific matching, which considers tutor supply, subject, pricing, geography, and session intent. Matching connects an available tutor to a live learning session and supports session continuity.
+  intake["Question<br/>intake"] --> match["US-specific<br/>matching"]
+  factors["Supply · subject · price<br/>Geography · session intent"] -. Inputs .-> match
+  match --> tutor["Available<br/>tutor"]
+  tutor --> session["Live learning<br/>session"]
+  session --> continuity["Session<br/>continuity"]
+  class match,session focus

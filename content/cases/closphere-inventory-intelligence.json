@@ -1,0 +1,189 @@
+{
+  "slug": "closphere-inventory-intelligence",
+  "company": "Closphere",
+  "role": "Founder & Product Lead",
+  "dates": "Dec 2023–Jan 2025",
+  "readingTime": "5 min read",
+  "labels": [
+    "Data modeling",
+    "Integrations",
+    "B2B SaaS",
+    "0→1"
+  ],
+  "title": "Inventory numbers manufacturers could actually trust.",
+  "shortTitle": "Inventory numbers manufacturers could actually trust.",
+  "description": "Small manufacturers ran on Tally, Zoho, Vyapar, and spreadsheets that never agreed with each other. I built Closphere around one bet: model inventory once, and make every new system a mapping, not a project. It grew to 63 paying customers and ended in a technology/IP sale.",
+  "problem": "Small manufacturers ran on Tally, Zoho, Vyapar, and spreadsheets that never agreed with each other. I built Closphere around one bet: model inventory once, and make every new system a mapping, not a project. It grew to 63 paying customers and ended in a technology/IP sale.",
+  "decision": "Invest in a canonical inventory model before building connectors, so onboarding became configuration.",
+  "scope": "Founder. Led a 12-person team: 6 engineers, a product designer, and 4 customer and account managers. Owned discovery, product, the data model, growth, and the exit.",
+  "metrics": [
+    {
+      "value": "63",
+      "label": "paying customers",
+      "definition": "1K+ users across 112 locations"
+    },
+    {
+      "value": "75% → 95%",
+      "label": "inventory record accuracy",
+      "definition": "before vs after"
+    },
+    {
+      "value": "<7 days",
+      "label": "onboarding",
+      "definition": "down from 6+ weeks"
+    },
+    {
+      "value": "−32%",
+      "label": "stockouts",
+      "definition": "after adoption"
+    }
+  ],
+  "artifact": "reconciliation",
+  "artifactCaption": "The product wasn't the dashboard. It was knowing when the numbers were wrong.",
+  "decisionCard": {
+    "options": "~~Build a bespoke integration per customer~~ · Canonical model + config-driven mappings",
+    "science": "50+ discovery conversations showed shared entities across every system",
+    "craft": "slower first integration in exchange for fast every-integration-after",
+    "cost": "upfront modeling time before customers saw a connector",
+    "result": "onboarding went from 6+ weeks to under 7 days"
+  },
+  "systemDetails": [
+    [
+      "Data model",
+      "Item master, units of measure, multi-location stock, batch/lot, transaction types"
+    ],
+    [
+      "Integrations",
+      "Tally, Zoho, Vyapar, custom in-house systems, via config-driven mappings"
+    ],
+    [
+      "Sync",
+      "Local agent + cloud aggregation"
+    ],
+    [
+      "Trust",
+      "Continuous reconciliation against source ERP balances, silent-failure detection"
+    ],
+    [
+      "Ingestion",
+      "OCR for paper challans (PaddleOCR, Tesseract)"
+    ],
+    [
+      "Team",
+      "12 people"
+    ]
+  ],
+  "sections": [
+    {
+      "id": "context",
+      "label": "The Problem",
+      "title": "Every system told a different story about the same stock.",
+      "paragraphs": [
+        {
+          "kind": "science",
+          "text": "Every Closphere customer was a manufacturer, and every one ran on messy, partly unstructured data: ERP exports, spreadsheets, and paper challans we had to OCR. Units of measure, batches, and locations meant different things in different systems. When the numbers can't be trusted, teams go back to calling the warehouse, and the software becomes a report nobody reads."
+        }
+      ],
+      "figures": []
+    },
+    {
+      "id": "evidence",
+      "label": "What I Found",
+      "title": "Fifty customers. One underlying model.",
+      "paragraphs": [
+        {
+          "kind": "science",
+          "text": "Discovery with 50+ customers showed the same core entities everywhere: item master, units of measure, multi-location stock, batch and lot data, transaction types. The systems differed in how they expressed those entities, not in what the entities were."
+        }
+      ],
+      "figures": []
+    },
+    {
+      "id": "decision",
+      "label": "The Decision",
+      "title": "Build the model first. Make every connector configuration.",
+      "paragraphs": [
+        {
+          "kind": "craft",
+          "text": "I invested in a canonical data model before building integrations. Connectors for Tally, Zoho, Vyapar, and custom in-house systems became mappings into that model, and the mappings became configuration-driven."
+        }
+      ],
+      "figures": [
+        "inventory-hub"
+      ]
+    },
+    {
+      "id": "trust",
+      "label": "Trust Architecture",
+      "title": "A silent failure is worse than a loud one.",
+      "paragraphs": [
+        {
+          "kind": "craft",
+          "text": "Capability was never the hard part. Trust was. A local sync agent fed cloud aggregation, and we continuously reconciled against the source ERP's own balances. We also built detection for the scariest failure mode: sync that stops without anyone noticing."
+        }
+      ],
+      "figures": [
+        "sync-trust"
+      ]
+    },
+    {
+      "id": "cost",
+      "label": "What It Cost",
+      "title": "Configuration scales. Customization sells.",
+      "paragraphs": [
+        {
+          "kind": "craft",
+          "text": "There was no wrong customer. Every one of them improved the product. But some demanded heavy customization, and that pulled against the configuration-driven thesis the whole company was built on."
+        },
+        {
+          "kind": "craft",
+          "text": "We turned part of that tension into pricing, with usage-based upselling tied to customization needs. But once, a major customer's request pushed us past capacity. I hired immediately, pulled all-nighters alongside the team to deliver, and then gave everyone a week off to reset. Since then I check team bandwidth before I commit to an ambitious ask, not after."
+        }
+      ],
+      "figures": [
+        "customization-spectrum"
+      ]
+    },
+    {
+      "id": "growth",
+      "label": "Growth",
+      "title": "Customers sold it for us.",
+      "paragraphs": [
+        {
+          "kind": "science",
+          "text": "Referral drove about 30% of new business. We tracked activation through newsletters and word of mouth."
+        }
+      ],
+      "figures": [],
+      "systemDetails": true,
+      "notices": [
+        "[CONFIRM: retention cadence. Is it month over month? The retention figure is withheld until confirmed.]"
+      ]
+    },
+    {
+      "id": "outcomes",
+      "label": "Outcomes",
+      "title": "From 75% to 95% inventory accuracy, and a technology/IP sale.",
+      "paragraphs": [
+        {
+          "text": "63 paying customers across 112 locations and 1K+ users. Inventory record accuracy went from 75% to 95%, stockouts dropped 32%, and reconciliation effort fell by more than 70%. Onboarding went from 6+ weeks to under 7 days. The company ended in a technology/IP sale."
+        }
+      ],
+      "figures": [],
+      "notices": [
+        "[SAHIL DECIDE: whether to show ARR. Default: do not render.]"
+      ]
+    },
+    {
+      "id": "learning",
+      "label": "What I Learned",
+      "title": "The product was the data model.",
+      "paragraphs": [
+        {
+          "text": "Connectors, dashboards, and alerts were all downstream of getting the model right once. And the constraint I underestimated wasn't technical. It was my team's bandwidth."
+        }
+      ],
+      "figures": []
+    }
+  ]
+}

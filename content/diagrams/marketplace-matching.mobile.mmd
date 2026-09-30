@@ -1,0 +1,9 @@
+flowchart TB
+  accTitle: Matching designed for the US market
+  accDescr: Student intake is matched using tutor supply, subject, price, geography, and session intent, then connects to an available tutor, a live session, and continuity.
+  intake["Question intake"] --> factors["Supply · subject · price<br/>Geography · session intent"]
+  factors --> match["US-specific matching"]
+  match --> tutor["Available tutor"]
+  tutor --> session["Live learning session"]
+  session --> continuity["Session continuity"]
+  class match,session focus

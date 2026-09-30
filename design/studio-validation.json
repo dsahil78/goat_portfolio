@@ -1,0 +1,82 @@
+[
+  {
+    "page": "directions/studio",
+    "width": 360,
+    "overflow": false,
+    "h1": 1,
+    "brokenAnchors": [],
+    "errors": []
+  },
+  {
+    "page": "directions/studio-case",
+    "width": 360,
+    "overflow": false,
+    "h1": 1,
+    "brokenAnchors": [],
+    "errors": []
+  },
+  {
+    "page": "directions/studio",
+    "width": 390,
+    "overflow": false,
+    "h1": 1,
+    "brokenAnchors": [],
+    "errors": []
+  },
+  {
+    "page": "directions/studio-case",
+    "width": 390,
+    "overflow": false,
+    "h1": 1,
+    "brokenAnchors": [],
+    "errors": []
+  },
+  {
+    "page": "directions/studio",
+    "width": 768,
+    "overflow": false,
+    "h1": 1,
+    "brokenAnchors": [],
+    "errors": []
+  },
+  {
+    "page": "directions/studio-case",
+    "width": 768,
+    "overflow": false,
+    "h1": 1,
+    "brokenAnchors": [],
+    "errors": []
+  },
+  {
+    "page": "directions/studio",
+    "width": 1024,
+    "overflow": false,
+    "h1": 1,
+    "brokenAnchors": [],
+    "errors": []
+  },
+  {
+    "page": "directions/studio-case",
+    "width": 1024,
+    "overflow": false,
+    "h1": 1,
+    "brokenAnchors": [],
+    "errors": []
+  },
+  {
+    "page": "directions/studio",
+    "width": 1440,
+    "overflow": false,
+    "h1": 1,
+    "brokenAnchors": [],
+    "errors": []
+  },
+  {
+    "page": "directions/studio-case",
+    "width": 1440,
+    "overflow": false,
+    "h1": 1,
+    "brokenAnchors": [],
+    "errors": []
+  }
+]

@@ -1,0 +1,9 @@
+flowchart TB
+  accTitle: Document intelligence overview
+  accDescr: Documents enter schema-driven retrieval. A confidence policy routes outputs to acceptance or human review.
+  input["Multi-format documents"] --> retrieval["Schema-driven retrieval"]
+  retrieval --> policy{"Confidence<br/>policy"}
+  policy -->|Meets policy| accept["Accept"]
+  policy -->|Needs review| review["Human<br/>review"]
+  class retrieval,policy focus
+  class review human
