@@ -41,8 +41,9 @@
   margin-bottom:48px;
 }
 .metric-row>div {
-  display:flex;
-  flex-direction:column;
+  display:grid;
+  grid-template-rows:subgrid;
+  grid-row:span 3;
   padding:0 24px;
   border-left:1px solid var(--rule);
   min-width:0;
@@ -66,7 +67,7 @@
   letter-spacing:-.04em;
   line-height:1.2;
   color:var(--accent);
-  white-space:nowrap;
+  white-space:normal;
 }
 .metric-definition {
   font-size:13px;
@@ -117,7 +118,7 @@
   gap:20px;
   justify-content:space-between;
   position:sticky;
-  top:0;
+  top:var(--header-height);
   background:var(--bg);
   padding:20px 0;
   border-top:1px solid var(--rule);
@@ -551,14 +552,14 @@
   grid-template-columns:1fr 32px 1.3fr 32px 1fr;
   gap:16px;
   align-items:center;
-  padding:32px 0;
+  padding:0;
 }
 .inventory-model ul {
   margin-top:16px;
 }
 .inventory-model li {
   font-size:17px;
-  padding:12px 0;
+  padding:8px 0;
   border-bottom:1px solid var(--rule);
 }
 .model-arrow {

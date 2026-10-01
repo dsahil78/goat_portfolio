@@ -10,7 +10,6 @@ export const metadata = pageMetadata('Sahil Dua · Technical Product Manager, AI
 export default function Home() {
   return <main id="main" tabIndex={-1}>
     <section className="hero" data-analytics-location="hero" data-analytics-section="hero" aria-labelledby="intro-title">
-      <Tag>Technical Product Manager · AI Platforms</Tag>
       <h1 id="intro-title">Sahil Dua<span>.</span></h1>
       <p className="hero-positioning">I build AI that enterprises<br className="desktop-break"/> trust in production.</p>
       <p className="hero-description">Technical PM across AI platforms, enterprise SaaS, and marketplaces. I’ve shipped evaluation-led document AI at 100K+ documents a month, founded an inventory platform that exited through a technology/IP sale, and launched a tutoring marketplace in the US.</p>

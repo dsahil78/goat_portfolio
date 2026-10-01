@@ -39,7 +39,7 @@ function Extraction({ compact }: { compact: boolean }) {
 function Reconciliation() {
   return <div className="reconciliation-ui">
     <div className="diagram-heading"><span className="diagram-label">Inventory reconciliation</span><span className="diagram-label">Source checks</span></div>
-    <table><caption className="sr-only">Illustrative reconciliation showing matched balances, a mismatch, and a silent sync.</caption><thead><tr><th>SKU</th><th>Source ERP</th><th>Closphere</th><th>Status</th></tr></thead>
+    <table><caption className="sr-only">Reconciliation example showing matched balances, a mismatch, and a silent sync.</caption><thead><tr><th>SKU</th><th>Source ERP</th><th>Closphere</th><th>Status</th></tr></thead>
       <tbody>
         <tr><th>CTN-180-NVY</th><td>Available</td><td>Available</td><td><span className="status-dot"/>Matched</td></tr>
         <tr><th>BTN-12-BLK</th><td>Available</td><td>Reserved</td><td className="warning">Mismatch</td></tr>

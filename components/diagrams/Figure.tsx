@@ -4,8 +4,8 @@ import { useEffect, useRef, type ReactNode } from 'react';
 import { capturePortfolioEvent } from '@/lib/analytics';
 
 /** Shared accessible figure. Emits diagram_viewed once per mounted figure at 50% visibility. */
-export function Figure({ id, caseStudy, caption, children, className = '', illustrative = true }: {
-  id: string; caseStudy: string; caption: string; children: ReactNode; className?: string; illustrative?: boolean;
+export function Figure({ id, caseStudy, caption, children, className = '' }: {
+  id: string; caseStudy: string; caption: string; children: ReactNode; className?: string;
 }) {
   const ref = useRef<HTMLElement>(null);
   const viewed = useRef(false);
@@ -24,7 +24,6 @@ export function Figure({ id, caseStudy, caption, children, className = '', illus
     return () => observer.disconnect();
   }, [caseStudy, id]);
   return <figure ref={ref} className={`v2-figure ${className}`} data-diagram={id} data-case-study={caseStudy}>
-    {illustrative && <span className="figure-kicker">Illustrative</span>}
     <div className="figure-canvas">{children}</div>
     <figcaption>{caption}</figcaption>
   </figure>;

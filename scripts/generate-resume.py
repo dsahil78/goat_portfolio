@@ -39,7 +39,7 @@ with TemporaryDirectory() as font_dir:
         line(text, size=10, leading=13, bold=True, color='#1D4ED8', space=6)
     line('Sahil Dua', size=26, leading=30, bold=True, space=4)
     line('Technical Product Manager, AI Platforms',size=12,leading=16,space=5)
-    line('sahildua033@gmail.com · duasahil.com · linkedin.com/in/sahildua78 · github.com/dsahil78',size=8,leading=11,space=10)
+    line('hello@duasahil.com · duasahil.com · linkedin.com/in/sahildua78 · github.com/dsahil78',size=8,leading=11,space=10)
     line('I build AI that enterprises trust in production. Product experience across document AI, enterprise SaaS, and marketplaces, including founding an inventory platform that exited through a technology/IP sale.',size=9.5,leading=13,space=6)
     heading('EXPERIENCE')
     line('ProductSquads · Lead Product Manager | Feb 2025 to Sep 2025',bold=True)

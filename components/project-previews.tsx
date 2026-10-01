@@ -5,8 +5,8 @@ import { ArrowLink, Tag } from './ui';
 export function CaseCard({ study }: { study: CaseStudy }) {
   const metric = study.company === 'Filo' ? study.metrics[1] : study.metrics[0];
   return <article className="case-card" data-analytics-section={`work_${study.slug}`}>
-    <div className="case-preview" role="img" aria-label={`Illustrative ${study.hero.replaceAll('-', ' ')} for ${study.company}`}>
-      <span className="figure-kicker">Illustrative</span><div aria-hidden="true"><CaseGraphic kind={study.hero} compact/></div>
+    <div className="case-preview" role="img" aria-label={`${study.hero.replaceAll('-', ' ')} for ${study.company}`}>
+      <div aria-hidden="true"><CaseGraphic kind={study.hero} compact/></div>
     </div>
     <div className="card-meta"><span>{study.company}</span><span>{study.role}</span><span>{study.dates}</span></div>
     <h3>{study.shortTitle}</h3><p className="card-trust">{study.trust}</p>

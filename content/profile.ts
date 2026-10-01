@@ -1,7 +1,7 @@
 export const profile = {
   name: 'Sahil Dua',
   identity: 'Technical Product Manager & Founder',
-  email: 'sahildua033@gmail.com',
+  email: 'hello@duasahil.com',
   linkedin: 'https://www.linkedin.com/in/sahildua78',
   github: 'https://github.com/dsahil78',
   resume: '/resume.pdf',
