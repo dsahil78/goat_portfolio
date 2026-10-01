@@ -8,5 +8,6 @@ export function ArrowLink({ href, children, className = '', direction = '↗', l
 }) {
   const content = <><span>{children}</span><span className="arrow" aria-hidden="true">{direction}</span></>;
   const props = { className: `jump ${className}`, 'aria-label': label, 'data-analytics-project': project, 'data-analytics-demo': demo };
-  return href.startsWith('/') && !href.endsWith('.pdf') ? <Link href={href} prefetch={false} {...props}>{content}</Link> : <a href={href} {...props}>{content}</a>;
+  const isPdf = href.endsWith('.pdf');
+  return href.startsWith('/') && !isPdf ? <Link href={href} prefetch={false} {...props}>{content}</Link> : <a href={href} target={isPdf ? '_blank' : undefined} rel={isPdf ? 'noopener noreferrer' : undefined} {...props}>{content}</a>;
 }
