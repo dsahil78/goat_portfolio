@@ -41,6 +41,7 @@
   margin-bottom:48px;
 }
 .metric-row>div {
+  container-type:inline-size;
   display:grid;
   grid-template-rows:subgrid;
   grid-row:span 3;
@@ -74,6 +75,15 @@
   line-height:1.5;
   color:var(--text-secondary);
   margin-top:8px;
+}
+.metric-value.metric-value--transition {
+  font-size:min(44px,17cqi);
+  white-space:nowrap;
+}
+@media(max-width:1100px) {
+  .metric-value.metric-value--transition {
+    font-size:min(34px,17cqi);
+  }
 }
 .v2-figure {
   margin:0 auto;
@@ -579,6 +589,7 @@
 }
 .model-output>span {
   color:var(--accent);
+  text-align:center;
 }
 .account-context {
   display:grid;
