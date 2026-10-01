@@ -99,12 +99,15 @@ try {
   const request = await browser.newContext();
   for (const [path, host, target] of [
     ['/work/scieden-sales-workflow', null, '/work/supreme-rfq-quoting'],
-    ['/about?ref=test', 'goat-portfolio-kvi7.vercel.app', 'https://duasahil.com/about?ref=test'],
-    ['/work?ref=test', 'goat-portfolio-preview-team.vercel.app', 'https://duasahil.com/work?ref=test'],
   ]) {
     const response = await request.request.get(origin + path, { maxRedirects: 0, headers: host ? { host } : {} });
     assert.equal(response.status(), 301);
     assert.equal(response.headers().location, target);
+  }
+  for (const host of ['goat-portfolio-kvi7.vercel.app', 'goat-portfolio-preview-team.vercel.app']) {
+    const response = await request.request.get(origin + '/about?ref=test', { maxRedirects: 0, headers: { host } });
+    assert.equal(response.status(), 200);
+    assert.equal(response.headers().location, undefined);
   }
   for (const path of ['/resume.pdf', '/robots.txt', '/sitemap.xml', '/favicon.ico', '/apple-icon', '/opengraph-image', ...slugs.map(slug => `/work/${slug}/opengraph-image`)]) {
     const response = await request.request.get(origin + path);

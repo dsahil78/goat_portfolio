@@ -65,14 +65,14 @@ The optional location line and Now building section were not confirmed, so both 
 
 The rendered production HTML, page text, metadata, accessible labels, and résumé are checked for forbidden copy. The rendered production HTML scan returns zero matches.
 
-A literal recursive substring scan of every generated bundle cannot return zero while preserving the requested functionality: Next.js includes internal `TODO` comments and `dynamicPostpone` (which contains the case-insensitive substring `CPO`); PostHog includes sampling identifiers, a `vercel.app` cookie-domain list, and an em dash in an SDK error message. The redirect manifest must contain the old slug and Vercel host matcher. These are framework/SDK internals or mandatory redirect configuration, not public portfolio copy. The old `.next/dev` cache is not the production build and is excluded from the production audit.
+A literal recursive substring scan of every generated bundle cannot return zero while preserving the requested functionality: Next.js includes internal `TODO` comments and `dynamicPostpone` (which contains the case-insensitive substring `CPO`); PostHog includes sampling identifiers, a `vercel.app` cookie-domain list, and an em dash in an SDK error message. The redirect manifest must contain the old slug. These are framework/SDK internals or mandatory redirect configuration, not public portfolio copy. The old `.next/dev` cache is not the production build and is excluded from the production audit.
 
 ## Domain and redirects
 
 - Before changes, `https://duasahil.com` returned a Vercel 308 to `https://www.duasahil.com`, which served this Next.js portfolio, not Framer.
 - The application now returns an explicit 301 from `/work/scieden-sales-workflow` to `/work/supreme-rfq-quoting`.
-- Requests reaching this application on any Vercel hostname receive a 301 to `https://duasahil.com`, preserving the path and query string.
-- Vercel deployment protection operates before application routing. Protected preview URLs can still require login before this redirect runs. This cannot be changed or verified without access to the Vercel project settings.
+- Following Sahil's correction, Vercel hostnames serve the portfolio directly. The original brief's Vercel-to-custom-domain redirect has been removed.
+- Vercel deployment protection operates before application routing. Protected preview URLs can still require login. This cannot be changed without access to the Vercel project settings.
 - To make the apex domain the final URL, the Vercel domain settings must attach `duasahil.com` directly to Production and redirect `www.duasahil.com` to it. The code deliberately does not add a www-to-apex redirect while the existing platform-level apex-to-www redirect is active, which would create a loop.
 
 ## Reproduce verification

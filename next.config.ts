@@ -15,7 +15,6 @@ const nextConfig: NextConfig = {
     return [
       { source: '/work/scieden-sales-workflow', destination: '/work/supreme-rfq-quoting', statusCode: 301 },
       { source: '/about-me', destination: '/about', statusCode: 301 },
-      { source: '/:path*', has: [{ type: 'host', value: '.*\\.vercel\\.app' }], destination: 'https://duasahil.com/:path*', statusCode: 301 },
     ];
   },
   async headers() {
