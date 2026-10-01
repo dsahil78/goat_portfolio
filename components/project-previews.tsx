@@ -18,5 +18,5 @@ export function CaseGrid() {
   return <div className="case-grid" data-analytics-location="case_grid">{cases.map(study => <CaseCard study={study} key={study.slug}/>)}</div>;
 }
 export function SelectedWork() {
-  return <section id="work" className="section selected-work" aria-labelledby="work-title"><div className="section-heading"><div><Tag>Selected work</Tag><h2 id="work-title">Capability is the start.<br/>Trust is the work.</h2></div><p>Decisions, systems, and the evidence<br className="desktop-break"/> that made them dependable.</p></div><CaseGrid/></section>;
+  return <section id="work" className="section selected-work" aria-labelledby="work-title"><div className="section-heading"><div><Tag>Selected work</Tag><h2 id="work-title">Capability is the start.<br/>Trust is the work.</h2></div></div><CaseGrid/></section>;
 }
