@@ -12,7 +12,7 @@ export default function Home() {
     <section className="hero" data-analytics-location="hero" data-analytics-section="hero" aria-labelledby="intro-title">
       <h1 id="intro-title">Sahil Dua<span>.</span></h1>
       <p className="hero-positioning">I build AI that enterprises<br className="desktop-break"/> trust in production.</p>
-      <p className="hero-description">Technical PM across AI platforms, enterprise SaaS, and marketplaces. I’ve shipped evaluation-led document AI at 100K+ documents a month, founded an inventory platform that exited through a technology/IP sale, and launched a tutoring marketplace in the US.</p>
+      <p className="hero-description">Technical PM across AI platforms and enterprise SaaS. I’ve shipped evaluation-led document AI at 100K+ docs a month, founded an inventory platform that exited through a technology sale, and launched a tutoring marketplace in the US.</p>
       <div className="hero-actions"><ArrowLink href="#work" className="button button-primary" direction="↓">View work</ArrowLink><ArrowLink href={profile.resume} className="button button-secondary">Résumé</ArrowLink></div>
     </section>
     <div className="proof-strip" aria-label="Selected outcomes" data-analytics-location="leadership_highlights">
