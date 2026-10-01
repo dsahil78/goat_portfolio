@@ -11,8 +11,15 @@ export default function Home() {
   return <main id="main" tabIndex={-1}>
     <section className="hero" data-analytics-location="hero" data-analytics-section="hero" aria-labelledby="intro-title">
       <h1 id="intro-title">Sahil Dua<span>.</span></h1>
-      <p className="hero-positioning">I build AI that enterprises<br className="desktop-break"/> trust in production.</p>
-      <p className="hero-description">Technical PM across AI platforms and enterprise SaaS. I’ve shipped evaluation-led document AI at 100K+ docs a month, founded an inventory platform that exited through a technology sale, and launched a tutoring marketplace in the US.</p>
+      <p className="hero-positioning">I build AI that enterprises trust in production.</p>
+      <div className="hero-description">
+        <p className="hero-summary">Technical PM across AI platforms and enterprise SaaS.</p>
+        <p className="hero-experience">
+          <span>I’ve shipped evaluation-led document AI at 100K+ docs a month,</span>{' '}
+          <span>founded an inventory platform that exited through a technology sale,</span>{' '}
+          <span>and launched a high dosage tutoring platform in the US.</span>
+        </p>
+      </div>
       <div className="hero-actions"><ArrowLink href="#work" className="button button-primary" direction="↓">View work</ArrowLink><ArrowLink href={profile.resume} className="button button-secondary">Résumé</ArrowLink></div>
     </section>
     <div className="proof-strip" aria-label="Selected outcomes" data-analytics-location="leadership_highlights">

@@ -30,7 +30,7 @@ The canonical domain is `https://duasahil.com`. Vercel Production builds are ind
 - `components/case-visuals.tsx`: code-native illustrative artifacts.
 - `components/experiment-visual.tsx`: nonnumeric experiment illustrations.
 - `app/globals.css` and `app/case-studies.css`: responsive design system.
-- `public/resume.pdf`: revised approved-facts résumé; its previous version is archived under `design/`.
+- `public/resume.pdf`: latest supplied résumé, copied from `public/Resume-Sahil_Dua.pdf`. All résumé links use `/resume.pdf`; replace this file when updating the résumé.
 
 The fonts are self-hosted Inter, Inter Tight, and JetBrains Mono. Font licenses are included under `public/fonts/`. The Inter files retain the weights and characters currently used by the site; expand their character coverage before adding another language.
 
