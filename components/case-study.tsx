@@ -18,7 +18,7 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
   ];
   return <main id="main" tabIndex={-1} className="case-page" data-case-study={study.slug} data-analytics-location="case_study">
     <header className="case-hero text-column"><ArrowLink href="/work" className="back-link" direction="←">All work</ArrowLink>
-      <div className="case-meta"><span>{study.company}</span><span>{study.role}</span><span>{study.dates}</span><span>Brief read</span></div>
+      <div className="case-meta"><span>{study.company}</span><span>{study.role}</span><span>{study.dates}</span></div>
       <h1>{study.title}</h1><p className="lead">{study.description}</p><p className="trust-line">{study.trust}</p>{study.context && <p className="company-context">{study.context}</p>}
     </header>
     <MetricStrip metrics={study.metrics}/><CaseVisual study={study}/>
