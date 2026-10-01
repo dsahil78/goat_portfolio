@@ -22,7 +22,7 @@ export default function Home() {
     </div>
     <SelectedWork/>
     <section id="about" data-analytics-section="about" className="about-section section" aria-labelledby="about-title">
-      <div><Tag>Background</Tag><h2 id="about-title">Engineer by training.<br/>Product builder by practice.</h2><p>My path spans enterprise document AI, an inventory platform I founded, and a US tutoring marketplace launch. The thread is the same: make complex systems dependable enough for people to act on.</p><ArrowLink href="/about">More about me</ArrowLink><p className="education-note">UW MS Information Management, Product &amp; AI, Sep 2025 to Aug 2026.<br/>Amity BTech CSE, 2016 to 2020.</p></div>
+      <div><Tag>Background</Tag><h2 id="about-title">Engineer by training.<br/>Product builder by practice.</h2><p>My path spans enterprise document AI, an inventory platform I founded, and a US tutoring marketplace launch. The thread is the same: make complex systems dependable enough for people to act on.</p><ArrowLink href="/about">More about me</ArrowLink><p className="education-note">UW MSIM, Product &amp; AI, Sep 2025 to Aug 2026.<br/>Amity BTech CSE, 2016 to 2020.</p></div>
       <figure className="team-figure"><Image src="/images/kindred-team.webp" width={828} height={552} sizes="(max-width: 767px) calc(100vw - 48px), 496px" alt="Sahil Dua with the Kindred class-project team at UW’s Dempsey Startup Competition"/><figcaption>With the Kindred class-project team at UW’s Dempsey Startup Competition.</figcaption></figure>
     </section>
     <Contact/>
