@@ -1,150 +1,112 @@
 {
   "slug": "filo-us-product-launch",
   "company": "Filo",
-  "role": "Founding US PM",
-  "dates": "Aug 2022–Aug 2023",
-  "readingTime": "5 min read",
-  "labels": [
-    "Marketplace",
-    "0→1 launch",
-    "Matching",
-    "Activation"
-  ],
-  "title": "The US didn't need India's product. I had three weeks to prove it.",
-  "shortTitle": "The US didn't need India's product. I had three weeks to prove it.",
-  "description": "Filo matched students with live tutors in seconds and already had 2M+ users. The plan for the US was a lift-and-shift. I pushed for US-specific matching, proved the case in three weeks, and the US marketplace reached 120K users and $1.5M ARR in six months.",
-  "problem": "Filo matched students with live tutors in seconds and already had 2M+ users. The plan for the US was a lift-and-shift. I pushed for US-specific matching, proved the case in three weeks, and the US marketplace reached 120K users and $1.5M ARR in six months.",
-  "decision": "Build US-specific matching for collaborative learning instead of porting the India model.",
-  "scope": "Founding US PM, owning the US launch while based in India: matching, the activation funnel, OCR intake, session continuity, low-bandwidth audio and video, student and tutor onboarding, quality thresholds, and fraud detection. Worked with engineering, data science, and a 200-person operations team.",
+  "role": "Product Manager (Founding US PM)",
+  "dates": "Aug 2022 to Aug 2023",
+  "title": "A tutoring promise built for the US.",
+  "shortTitle": "Earning trust in a new tutoring market.",
+  "description": "A successful marketplace playbook did not automatically fit a new market. I used student research to shape US-specific matching around collaborative learning and a clear promise on response time.",
+  "trust": "Trust mechanism: a 60-second matching promise, kept for 98% of US requests in under 45.",
+  "scope": "I owned the US launch across matching, activation, OCR intake, and the session experience. I worked with engineering, data science, and operations on student and tutor workflows.",
   "metrics": [
     {
       "value": "120K",
       "label": "US users",
-      "definition": "in six months"
+      "definition": "In six months"
     },
     {
       "value": "$1.5M",
       "label": "ARR",
-      "definition": "in six months"
+      "definition": "US marketplace, in six months"
     },
     {
       "value": "98%",
       "label": "of US requests",
-      "definition": "matched in under 45 seconds"
+      "definition": "Matched in under 45 seconds"
     },
     {
       "value": "+35%",
       "label": "activation",
-      "definition": "after funnel work"
+      "definition": "After funnel improvements"
     }
   ],
-  "artifact": "matching",
-  "artifactCaption": "The whole product lives inside 45 seconds.",
-  "decisionCard": {
-    "options": "~~Lift-and-shift the India matching model~~ · US-specific matching for collaborative learning",
-    "science": "100+ interviews showing different US learning behavior",
-    "craft": "challenged a working playbook, and earned the time to prove it",
-    "cost": "a three-week proof window with a lean team",
-    "result": "120K users and $1.5M ARR in six months"
+  "hero": "matching",
+  "heroCaption": "The marker shows the measured matching result against the target. Individual step durations are not implied.",
+  "decision": {
+    "chose": "US-specific matching for collaborative learning.",
+    "over": "Port the existing India matching model.",
+    "evidence": "100+ user interviews informed the US experience.",
+    "tradeoff": "Adapt the matching and session experience instead of reusing the existing playbook unchanged.",
+    "cost": "Dedicated work on US matching, onboarding, and session continuity."
   },
   "systemDetails": [
     [
-      "Matching",
-      "US-specific logic, 60s target, 98% of US requests in under 45s"
+      "Intake",
+      "Upload a problem and use OCR to support intake."
     ],
     [
-      "Intake",
-      "OCR on uploaded problems"
+      "Matching",
+      "US-specific logic with a 60-second target."
+    ],
+    [
+      "Measured result",
+      "98% of US requests matched in under 45 seconds."
     ],
     [
       "Sessions",
-      "Session continuity, low-bandwidth audio and video"
+      "Tutor acceptance, session continuity, and low-bandwidth audio/video."
     ],
     [
       "Trust",
-      "Tutor onboarding, quality thresholds, fraud detection"
+      "Tutor onboarding, quality thresholds, and fraud detection."
     ],
     [
       "Research",
-      "100+ user interviews"
+      "100+ user interviews."
     ]
   ],
   "sections": [
     {
-      "id": "context",
+      "id": "problem",
       "label": "The Problem",
-      "title": "The easy path was already decided.",
+      "title": "A working playbook still needed a local test.",
       "paragraphs": [
-        {
-          "kind": "science",
-          "text": "The playbook had worked at 2M+ users, so the plan for the US was reasonable on paper: take the matching model that worked in India and ship it."
-        }
-      ],
-      "figures": []
+        "Filo had 2M+ users when I joined. The existing marketplace provided a starting point, but bringing it to the US required understanding whether its matching experience met local student expectations."
+      ]
     },
     {
-      "id": "evidence",
+      "id": "findings",
       "label": "What I Found",
-      "title": "US students didn't want answers. They wanted to learn together.",
+      "title": "Students wanted to learn together.",
       "paragraphs": [
-        {
-          "kind": "science",
-          "text": "Across 100+ user interviews, US students behaved fundamentally differently. They wanted a collaborative learning experience, not the model that worked in India."
-        }
-      ],
-      "figures": []
-    },
-    {
-      "id": "decision",
-      "label": "The Decision",
-      "title": "Fight for the harder path, and prove it fast.",
-      "paragraphs": [
-        {
-          "kind": "craft",
-          "text": "I pushed for US-specific matching logic. I was given three weeks to prove the US needed it. The cost was personal: a lean team, lost sleep, and keeping momentum under pressure while the default plan was ready to go."
-        }
-      ],
-      "figures": [
-        "launch-fork"
+        "Across 100+ user interviews, collaborative learning emerged as a key need for the US experience. That called for more than translating the interface. Matching, onboarding, and the session itself needed to support that expectation."
       ]
     },
     {
       "id": "shipped",
       "label": "What Shipped",
-      "title": "A 60-second promise, kept in 45.",
+      "title": "Make the promise visible in the request path.",
       "paragraphs": [
-        {
-          "kind": "craft",
-          "text": "Matching had a 60-second target. We designed the whole request path around it."
-        }
-      ],
-      "figures": [
-        "matching-flow",
-        "marketplace-trust"
-      ],
-      "systemDetails": true
+        "The experience connected uploaded problems, OCR intake, US-specific matching, tutor acceptance, and a live session. Matching had a 60-second target. Session continuity and low-bandwidth audio/video supported the experience after the match.",
+        "I worked across the activation funnel and student and tutor onboarding, with quality thresholds and fraud detection supporting marketplace trust."
+      ]
     },
     {
       "id": "outcomes",
       "label": "Outcomes",
-      "title": "120K users and $1.5M ARR in six months.",
+      "title": "A US marketplace with a promise it could keep.",
       "paragraphs": [
-        {
-          "text": "Activation rose 35% and conversion reached 3%+. 98% of US requests were matched in under 45 seconds, against a 60-second target."
-        }
-      ],
-      "figures": []
+        "The US marketplace went on to reach 120K users and $1.5M ARR in six months. 98% of US requests matched in under 45 seconds against a 60-second target.",
+        "Activation increased 35% and conversion reached 3%+."
+      ]
     },
     {
       "id": "learning",
       "label": "What I Learned",
-      "title": "Local insight is a product decision, not a localization task.",
+      "title": "Local insight belongs in the core product.",
       "paragraphs": [
-        {
-          "text": "Building US-specific matching wasn't the hardest part. The hardest part was earning the three weeks to prove it was needed."
-        }
-      ],
-      "figures": []
+        "Market entry is a product decision, not just a distribution decision. Trust came from adapting the experience to how students wanted to learn and then delivering on a measurable promise."
+      ]
     }
   ]
 }

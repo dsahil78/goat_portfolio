@@ -4,41 +4,36 @@ import { ArrowLink, Tag } from './ui';
 import { Contact } from './site-shell';
 import { MetricStrip } from './diagrams/MetricStrip';
 import { DecisionCard } from './diagrams/DecisionCard';
-import { ProductArtifact } from './case-v2/product-artifacts';
-import { CaseFigure } from './case-v2/case-figures';
+import { CaseVisual } from './case-visuals';
 import { CaseContents } from './case-v2/case-contents';
-
-function MarkedCopy({ text }: { text: string }) {
-  return <>{text.split(/(\[(?:CONFIRM|SAHIL)[^\]]*\])/g).map((part, i) => part.startsWith('[CONFIRM') || part.startsWith('[SAHIL') ? <mark className="confirmation" key={i}>{part}</mark> : <Fragment key={i}>{part}</Fragment>)}</>;
-}
 
 export function CaseStudyPage({ study }: { study: CaseStudy }) {
   const next = cases[(cases.findIndex(item => item.slug === study.slug) + 1) % cases.length];
-  return <main id="main" tabIndex={-1} className="case-v2" data-case-study={study.slug} data-analytics-location="case_study">
-    <header className="v2-hero">
-      <ArrowLink href="/work" className="back-link" direction="←">All work</ArrowLink>
-      <div className="v2-meta"><strong>{study.company}</strong><span>{study.role}</span><span>{study.dates}</span><span>{study.readingTime}</span></div>
-      <h1>{study.title}</h1><p className="v2-dek">{study.description}</p>
-      <p className="v2-skills">{study.labels.join(' · ')}</p>
+  const contents = [
+    ...study.sections.slice(0, 2).map(({ id, label }) => ({ id, label })),
+    { id: 'decision', label: 'The Decision' },
+    { id: 'shipped', label: 'What Shipped' },
+    { id: 'system-details', label: 'System Details' },
+    ...study.sections.slice(3).map(({ id, label }) => ({ id, label })),
+  ];
+  return <main id="main" tabIndex={-1} className="case-page" data-case-study={study.slug} data-analytics-location="case_study">
+    <header className="case-hero text-column"><ArrowLink href="/work" className="back-link" direction="←">All work</ArrowLink>
+      <div className="case-meta"><span>{study.company}</span><span>{study.role}</span><span>{study.dates}</span><span>Brief read</span></div>
+      <h1>{study.title}</h1><p className="lead">{study.description}</p><p className="trust-line">{study.trust}</p>{study.context && <p className="company-context">{study.context}</p>}
     </header>
-    <MetricStrip metrics={study.metrics}/>
-    <ProductArtifact study={study}/>
-    <div className="v2-scope v2-prose"><div><Tag>The key decision</Tag><p>{study.decision}</p></div><div><Tag>My scope</Tag><p>{study.scope}</p></div></div>
-    <CaseContents sections={study.sections.map(({ id, label }) => ({ id, label }))}/>
-    <article className="v2-narrative" aria-label={`${study.company} case study`}>
+    <MetricStrip metrics={study.metrics}/><CaseVisual study={study}/>
+    <section className="case-scope text-column" aria-labelledby="scope-title"><h2 id="scope-title" className="tag">My scope</h2><p>{study.scope}</p></section>
+    <CaseContents sections={contents}/>
+    <article className="case-narrative" aria-label={`${study.company} case study`}>
       {study.sections.map(section => <Fragment key={section.id}>
-        <section id={section.id} className={`v2-section ${section.id === 'decision' ? 'decision-moment' : ''}`} aria-labelledby={`${section.id}-title`} data-analytics-section={`case_${section.id}`} data-case-end={section.id === study.sections.at(-1)?.id ? 'true' : undefined}>
-          <div className="v2-prose"><Tag>{section.label}</Tag><h2 id={`${section.id}-title`}>{section.title}</h2></div>
-          {section.id === 'decision' && <DecisionCard study={study}/>}
-          <div className="v2-prose">{section.paragraphs.map((paragraph, i) => <div className="marked-paragraph" key={i}>{paragraph.kind && <span className={`reason-chip margin-marker ${paragraph.kind}`}>{paragraph.kind}</span>}<p><MarkedCopy text={paragraph.text}/></p></div>)}</div>
-          {section.figures.map(id => <CaseFigure id={id} caseStudy={study.slug} key={id}/>)}
-          {section.notices && <div className="v2-prose case-notices">{section.notices.map(note => <p key={note}><MarkedCopy text={note}/></p>)}</div>}
-          {section.footnotes && <div className="v2-prose case-footnotes">{section.footnotes.map(note => <p key={note}>{note}</p>)}</div>}
+        <section id={section.id} className="case-section text-column" aria-labelledby={`${section.id}-title`} data-analytics-section={`case_${section.id}`} data-case-end={section.id === 'learning' ? 'true' : undefined}>
+          <Tag>{section.label}</Tag><h2 id={`${section.id}-title`}>{section.title}</h2>{section.paragraphs.map(text => <p key={text}>{text}</p>)}
         </section>
-        {section.systemDetails && <section className="system-details v2-prose" aria-labelledby="system-details-title"><h2 id="system-details-title">System details</h2><dl>{study.systemDetails.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl></section>}
+        {section.id === 'findings' && <><DecisionCard study={study}/><CaseVisual study={study} supporting/></>}
+        {section.id === 'shipped' && <section id="system-details" className="system-details text-column" aria-labelledby="system-details-title"><h2 id="system-details-title">System Details</h2><dl>{study.systemDetails.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl></section>}
       </Fragment>)}
     </article>
-    <div className="case-next" data-analytics-location="next_case" data-analytics-section="next_case"><div><Tag>Next case study / {next.company}</Tag><h2>{next.shortTitle}</h2></div><ArrowLink href={caseHref(next)} className="button button-secondary" label={`Explore ${next.company}: next case study`}>Explore {next.company}</ArrowLink></div>
+    <div className="case-next" data-analytics-location="next_case"><div><Tag>Next case study · {next.company}</Tag><h2>{next.shortTitle}</h2></div><ArrowLink href={caseHref(next)} label={`Read case study: ${next.company} (next)`}>Read case study</ArrowLink></div>
     <Contact/>
   </main>;
 }

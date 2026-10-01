@@ -2,11 +2,15 @@ import lighthouse from 'lighthouse';
 import {launch} from 'chrome-launcher';
 import {chromium} from 'playwright';
 import fs from 'node:fs/promises';
+import { interceptPostHog } from './posthog-fixture.mjs';
 const origin=process.env.TEST_URL || 'http://127.0.0.1:3000';
 const outputDir=process.env.LIGHTHOUSE_OUTPUT_DIR || 'validation/lighthouse';
-const routes=['/','/work','/work/doc-intelligence-ps','/projects','/about'];
+const routes=(process.env.LIGHTHOUSE_ROUTES || '/,/work/doc-intelligence-ps').split(',');
 await fs.mkdir(outputDir,{recursive:true});
 const chrome=await launch({chromePath:chromium.executablePath(),chromeFlags:['--headless','--no-sandbox','--disable-dev-shm-usage']});
+// Test analytics without sending performance-audit traffic into a real project.
+const browser=await chromium.connectOverCDP(`http://127.0.0.1:${chrome.port}`);
+if(process.env.LIGHTHOUSE_MOCK_ANALYTICS==='1') await interceptPostHog(browser.contexts()[0],origin);
 const results=[];
 try {
   for(const route of routes) {

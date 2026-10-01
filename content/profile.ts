@@ -17,25 +17,23 @@ export const profile = {
 };
 
 export const experience = [
-  {company:'ProductSquads',role:'Lead Product Manager',period:'Feb 2025 – Sep 2025',summary:'Document intelligence, evaluation, model routing, and human review at 100K+ documents/month.'},
-  {company:'Closphere',role:'Founder & Product Lead',period:'Dec 2023 – Jan 2025',summary:'Built inventory intelligence for 63 paying customers, 1K+ users and exited through a technology/IP sale.'},
-  {company:'Supreme Components International',role:'Product Manager',period:'Aug 2023 – Dec 2023',summary:'AI-assisted quoting with account context and commercial guardrails across 8K RFQs/month.'},
-  {company:'Filo Edtech',role:'Founding US PM',period:'Aug 2022 – Aug 2023',summary:'US marketplace launch, matching, activation, and session experience.'},
-  {company:'KPMG',role:'Product Analyst',period:'Sep 2021 – Aug 2022',summary:'Product discovery and analytics for 15+ Fortune 500 and late-stage clients.'},
-  {company:'Tata Consultancy Services',role:'Assistant System Engineer',period:'Feb 2021 – Sep 2021',summary:'Batch and streaming pipelines, scheduling, backfills, retries, and idempotent processing.'},
+  {company:'ProductSquads',role:'Lead Product Manager',period:'Feb 2025 to Sep 2025',summary:'Document intelligence, evaluation, model routing, and human review at 100K+ documents/month.'},
+  {company:'Closphere',role:'Founder & Product Lead',period:'Dec 2023 to Jan 2025',summary:'Built inventory intelligence for 63 paying customers, 1K+ users and exited through a technology/IP sale.'},
+  {company:'Supreme Components',role:'Product Manager',period:'Aug 2023 to Dec 2023',summary:'AI-assisted quoting with account context and commercial guardrails across 8K RFQs/month.'},
+  {company:'Filo',role:'Product Manager (Founding US PM)',period:'Aug 2022 to Aug 2023',summary:'US marketplace launch, matching, activation, and session experience.'},
 ];
 
 export const education = [
   {
     institution: 'University of Washington', location: 'Seattle, WA',
     degree: 'Master of Science in Information Management',
-    specialization: 'Product and Artificial Intelligence', period: 'Sep 2025 – Aug 2026',
+    specialization: 'Product and Artificial Intelligence', period: 'Sep 2025 to Aug 2026',
     shortDegree: 'MS, Information Management', completed: '2026',
   },
   {
     institution: 'Amity University', location: 'Noida, India',
     degree: 'Bachelor of Technology',
-    specialization: 'Computer Science and Engineering', period: 'Jul 2016 – Jun 2020',
+    specialization: 'Computer Science and Engineering', period: '2016 to 2020',
     shortDegree: 'BTech, Computer Science and Engineering', completed: '2020',
   },
 ];

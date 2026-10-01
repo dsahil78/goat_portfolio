@@ -1,4 +1,4 @@
-import posthog from 'posthog-js';
+import posthog from 'posthog-js/dist/module.slim';
 
 export const analyticsEnabled = Boolean(process.env.NEXT_PUBLIC_POSTHOG_KEY);
 

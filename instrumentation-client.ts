@@ -1,8 +1,11 @@
-import posthog from 'posthog-js';
+import posthog from 'posthog-js/dist/module.slim';
+import { AnalyticsExtensions, SessionReplayExtensions, ErrorTrackingExtensions, ToolbarExtensions } from 'posthog-js/dist/extension-bundles';
 import { registerOutreachRef } from '@/lib/analytics';
 
 if (process.env.NEXT_PUBLIC_POSTHOG_KEY) {
   posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
+    // Ship only the products used by this portfolio, including the heatmap toolbar.
+    __extensionClasses: { ...AnalyticsExtensions, ...SessionReplayExtensions, ...ErrorTrackingExtensions, ...ToolbarExtensions },
     api_host: '/ingest',
     ui_host: 'https://us.posthog.com',
     defaults: '2025-05-24',

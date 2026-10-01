@@ -9,10 +9,10 @@ export function MainNavigation() {
 
   return (
     <nav aria-label="Main navigation" data-analytics-location="nav">
-      <Link href="/work" aria-current={workLocation}>Work</Link>
-      <Link href="/projects" aria-current={pathname === '/projects' ? 'page' : undefined}>Experiments</Link>
-      <Link href="/about" aria-current={pathname === '/about' ? 'page' : undefined}>About</Link>
-      <Link href="/#contact" className="nav-contact">Let’s talk <span aria-hidden="true">↗</span></Link>
+      <Link href="/work" prefetch={false} aria-current={workLocation}>Work</Link>
+      <Link href="/projects" prefetch={false} aria-current={pathname === '/projects' ? 'page' : undefined}>Experiments</Link>
+      <Link href="/about" prefetch={false} aria-current={pathname === '/about' ? 'page' : undefined}>About</Link>
+      <Link href="/#contact" prefetch={false} className="nav-contact">Let’s talk <span aria-hidden="true">↗</span></Link>
     </nav>
   );
 }

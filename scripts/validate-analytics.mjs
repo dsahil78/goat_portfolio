@@ -6,7 +6,7 @@ import { gunzipSync } from 'node:zlib';
 
 // Run against a dev server started with the dummy key in docs/ANALYTICS.md.
 // Every PostHog request is intercepted; this is not a live ingestion test.
-const origin = process.env.TEST_URL || 'http://127.0.0.1:3002';
+const origin = process.env.TEST_URL || 'http://127.0.0.1:3004';
 const token = 'phc_local_test_not_a_real_project';
 const events = [];
 const requests = [];
@@ -99,20 +99,16 @@ try {
   await page.waitForURL('**/work/doc-intelligence-ps');
   await awaitEvent('case_study_opened', p => p.slug === 'doc-intelligence-ps');
   assert.equal(eventList('case_study_opened').length, 1, 'Mount/click or StrictMode duplicated the case visit');
-  await page.locator('[data-diagram="eval-stack"]').scrollIntoViewIfNeeded();
-  await awaitEvent('diagram_viewed', p => p.diagram === 'eval-stack');
+  await page.locator('[data-diagram="evaluation"]').scrollIntoViewIfNeeded();
+  await awaitEvent('diagram_viewed', p => p.diagram === 'evaluation');
   await page.getByRole('navigation', { name: 'Case study contents' }).getByRole('link', { name: 'What I Learned' }).click();
   await awaitEvent('case_study_end_reached');
   await page.evaluate(() => scrollTo(0, document.documentElement.scrollHeight));
   await awaitEvent('scroll_depth_reached', p => p.percent === 100);
   await page.getByRole('navigation', { name: 'Main navigation' }).getByRole('link', { name: 'Experiments' }).click();
   await page.waitForURL('**/projects');
-  await page.locator('[data-diagram="product-memory"] summary').click();
-  await page.locator('[data-diagram="product-memory"] .diagram-open').click();
-  await page.locator('[data-diagram="product-memory"] summary').click();
-  await page.getByRole('link', { name: 'Try the prototype: NXTai', exact: true }).click();
-  await page.getByRole('link', { name: 'Visit project website: Kindred', exact: true }).click();
-  await page.getByRole('link', { name: 'View full interface: NXTai (new tab)' }).first().click();
+  await page.locator('#nxtai .jump').click();
+  await page.locator('#kindred .jump').click();
   await awaitEvent('project_demo_opened', p => p.project === 'NXTai');
   await awaitEvent('project_website_opened', p => p.project === 'Kindred');
   assert.equal(eventList('project_demo_opened').length, 1, 'Waitlist was incorrectly counted as a live demo');

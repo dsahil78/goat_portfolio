@@ -19,7 +19,8 @@ export async function interceptPostHog(context, origin) {
     if(url.pathname.endsWith('/config.js')) return route.fulfill({contentType:'application/javascript',body:`window._POSTHOG_REMOTE_CONFIG={${JSON.stringify(token)}:{config:${JSON.stringify(config)}}};`});
     if(url.pathname.endsWith('/config') || url.pathname.includes('/flags/')) return route.fulfill({json:config});
     if(url.pathname.endsWith('.js')) {
-      try { return route.fulfill({contentType:'application/javascript',body:await fs.readFile(path.join('node_modules/posthog-js/dist',path.basename(url.pathname)))}); }
+      // Playwright fulfillment expects decoded content. Preserve CDN cache headers.
+      try { return route.fulfill({contentType:'application/javascript',headers:{'cache-control':'public, max-age=31536000, immutable'},body:await fs.readFile(path.join('node_modules/posthog-js/dist',path.basename(url.pathname)))}); }
       catch { failures.push('Missing SDK fixture: '+url.pathname); return route.abort(); }
     }
     const buffer = request.postDataBuffer();

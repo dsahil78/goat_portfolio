@@ -1,14 +1,8 @@
 import type { CaseStudy } from '@/content/case-studies';
-import { Figure, Arrow } from './Figure';
-
-/** Signature decision: alternatives, evidence, judgment, cost, and outcome. One per case. */
 export function DecisionCard({ study }: { study: CaseStudy }) {
-  const card = study.decisionCard;
-  const [rejected, rest] = card.options.replace(/^~~/, '').split('~~ · ');
-  const [chosen, note] = rest.split(' [CONFIRM:');
-  return <Figure id="decision-card" caseStudy={study.slug} caption={`Result: ${card.result}.`} illustrative={false} className="decision-card">
-    <div className="decision-options"><span className="spec-label">Options</span><div><s>{rejected}</s><Arrow label="The selected option"/><strong>{chosen}</strong></div>{note && <p className="confirmation">[CONFIRM:{note}</p>}</div>
-    <div className="decision-reasoning"><div><span className="reason-chip science">Science</span><p>{card.science}</p></div><div><span className="reason-chip craft">Craft</span><p>{card.craft}</p></div></div>
-    <div className="decision-cost"><span className="spec-label">Cost</span><p>{card.cost}</p></div>
-  </Figure>;
+  const labels = { chose: 'Chose', over: 'Over', evidence: 'Evidence', tradeoff: 'Trade-off', cost: 'Cost' };
+  return <section id="decision" className="decision-callout text-column" aria-labelledby="decision-title" data-analytics-section="case_decision">
+    <h2 id="decision-title" className="tag">The decision</h2>
+    <dl>{(Object.keys(labels) as (keyof typeof labels)[]).map(key => <div key={key}><dt>{labels[key]}</dt><dd>{study.decision[key]}</dd></div>)}</dl>
+  </section>;
 }

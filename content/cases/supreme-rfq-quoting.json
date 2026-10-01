@@ -1,0 +1,114 @@
+{
+  "slug": "supreme-rfq-quoting",
+  "company": "Supreme Components",
+  "role": "Product Manager",
+  "dates": "Aug 2023 to Dec 2023",
+  "title": "Fast quotes. Clear commercial boundaries.",
+  "shortTitle": "Quoting with confidence and account context.",
+  "description": "Routine RFQs moved slowly, but speed alone could not make automated quotes trustworthy. I shaped a quoting workflow around account context, confidence tiers, price floors, and human override.",
+  "trust": "Trust mechanism: confidence tiers, price floors, and human override on every quote.",
+  "scope": "I owned product decisions across RFQ intake, part extraction, inventory matching, quote routing, and commercial guardrails. I also worked on shipment tracking and demand forecasting, a separate logistics initiative.",
+  "metrics": [
+    {
+      "value": "18h → <1h",
+      "label": "in-stock quotes",
+      "definition": "Time to quote"
+    },
+    {
+      "value": "15d → <3d",
+      "label": "out-of-stock quotes",
+      "definition": "Turnaround time"
+    },
+    {
+      "value": "8K",
+      "label": "RFQs/month",
+      "definition": "Quoting workflow"
+    },
+    {
+      "value": "22%",
+      "label": "lower logistics costs",
+      "definition": "Shipment tracking + forecasting"
+    }
+  ],
+  "hero": "trust-routing",
+  "heroCaption": "Confidence alone does not grant permission to send a quote. Commercial risk changes the route.",
+  "supporting": "account-context",
+  "supportingCaption": "Account context distinguishes a new request from an existing commercial conversation.",
+  "decision": {
+    "chose": "Automate routine quoting with commercial guardrails.",
+    "over": "Keep quoting fully manual.",
+    "evidence": "In-stock quotes took 18 hours; out-of-stock quotes took 15 days.",
+    "tradeoff": "Reserve autonomy for requests that satisfy both confidence and commercial controls.",
+    "cost": "Model account context and escalation paths before expanding automation."
+  },
+  "systemDetails": [
+    [
+      "Intake",
+      "Intent classification and part number extraction from RFQs."
+    ],
+    [
+      "Matching",
+      "Inventory lookup and acceptable alternates."
+    ],
+    [
+      "Context",
+      "Prior quotes, account relationships, pricing tiers, and order intent."
+    ],
+    [
+      "Routing",
+      "Model confidence and commercial risk determine the review path."
+    ],
+    [
+      "Controls",
+      "Price floors, escalation paths, and human override on every quote."
+    ],
+    [
+      "Integration",
+      "Quote-to-order workflow."
+    ]
+  ],
+  "sections": [
+    {
+      "id": "problem",
+      "label": "The Problem",
+      "title": "Response time was a commercial constraint.",
+      "paragraphs": [
+        "RFQs arrived as unstructured requests. Sales teams needed to identify parts, check availability, and apply pricing context before responding. In-stock quotes took 18 hours and out-of-stock requests took 15 days."
+      ]
+    },
+    {
+      "id": "findings",
+      "label": "What I Found",
+      "title": "An RFQ is a moment in a relationship.",
+      "paragraphs": [
+        "A request can be a follow-up, come from a sister entity, or depend on a prior pricing agreement. Treating every message as standalone loses that context. The data model needed to carry the relationship alongside the extracted request."
+      ]
+    },
+    {
+      "id": "shipped",
+      "label": "What Shipped",
+      "title": "Automation with an explicit boundary.",
+      "paragraphs": [
+        "The workflow connected intake, extraction, inventory matching, and quote-to-order routing. Confidence tiers and price floors defined the boundary of routine automation, with escalation and human override available for commercial judgment.",
+        "Account context included prior quotes, sister entities, pricing tier, relationship history, revenue risk, lead time, alternates, and new-product versus repeat-order intent."
+      ]
+    },
+    {
+      "id": "outcomes",
+      "label": "Outcomes",
+      "title": "Faster quotes, with the source of each result clear.",
+      "paragraphs": [
+        "In-stock quoting moved from 18 hours to under 1 hour. Out-of-stock turnaround moved from 15 days to under 3 days across a workflow handling 8K RFQs/month.",
+        "Separately, shipment tracking and forecasting reduced logistics costs by 22%. That result belongs to the logistics work, not the RFQ workflow."
+      ]
+    },
+    {
+      "id": "learning",
+      "label": "What I Learned",
+      "title": "Permission matters as much as prediction.",
+      "paragraphs": [
+        "An accurate extraction does not make a quote commercially appropriate. Trust came from carrying account context into the decision and making the limits of automation explicit."
+      ]
+    }
+  ]
+}

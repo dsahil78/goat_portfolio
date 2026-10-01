@@ -6,7 +6,7 @@ import { MainNavigation } from './main-navigation';
 export function Header() {
   return (
     <header className="site-header" data-analytics-location="nav">
-      <Link href="/" className="name" aria-label="Sahil Dua: home"><span className="name-mark" aria-hidden="true"><svg viewBox="0 0 34 32" fill="none" focusable="false"><path d="M13 13c-2-3-8-2-8 1 0 4 8 2 8 6 0 4-7 5-9 1M25 7v16M25 15c-2-4-9-3-9 2s7 8 9 2" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/><circle cx="30" cy="23" r="1.5" fill="currentColor"/></svg></span><span>Sahil Dua</span></Link>
+      <Link href="/" prefetch={false} className="name" aria-label="Sahil Dua: home"><span className="name-mark" aria-hidden="true"><svg viewBox="0 0 34 32" fill="none" focusable="false"><path d="M13 13c-2-3-8-2-8 1 0 4 8 2 8 6 0 4-7 5-9 1M25 7v16M25 15c-2-4-9-3-9 2s7 8 9 2" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/><circle cx="30" cy="23" r="1.5" fill="currentColor"/></svg></span><span>Sahil Dua</span></Link>
       <MainNavigation/>
     </header>
   );
